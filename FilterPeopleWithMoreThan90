@@ -1,0 +1,9 @@
+#FilterPeopleWithMoreThan90
+data ={"Nitish":89,"Amaa":99,"Karthik":91,"Rohan":67}
+
+def do (student):
+ return data[student]>=90
+
+filtered_obj=filter(do,data)
+for x in filtered_obj:
+ print(x)
