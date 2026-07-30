@@ -1,0 +1,2 @@
+list =["Swaminathan Karthik","Singh Rahul","Tripathi Pankaj"]
+print(sorted(list, key= lambda list: list.split(" ")[1]))
