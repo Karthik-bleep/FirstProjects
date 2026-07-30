@@ -1,0 +1,6 @@
+import functools
+list=[1,2,3,4,5]
+def sum(x,y):
+    return x+y
+obj =functools.reduce(sum,list)
+print(obj)
