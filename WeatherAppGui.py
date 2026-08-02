@@ -8,6 +8,9 @@ class MainWindow(QWidget):
         self.setWindowTitle("Weather App")
         self.apikey ="38e14e516536985249b10e2b6bba3fad"
         self.city_input =QLineEdit(self)
+        self.status=QLabel("Status",self)
+        self.status.setGeometry(200,120,80,50)
+
         self.city_input.setGeometry(30,55,250,35)
         self.weathertruth=QLabel("Weather",self)
         self.weathertruth.setGeometry(200,100,80,50)    
@@ -24,11 +27,13 @@ class MainWindow(QWidget):
         self.html =f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={self.apikey}"
         response = requests.get(self.html)
         file = response.json()
-        print(file)
+        #print(file)
         tempink =file['main']['temp']
+        state =file['weather'][0]['description']
         tempinc = str(round(tempink-273.15)) + "°C"
         print(tempinc)
         self.weathertruth.setText(str(tempinc))
+        self.status.setText(state)
 
 def main():
   app=QApplication(sys.argv)
@@ -41,3 +46,4 @@ if __name__=="__main__":
    main()
 
  
+
